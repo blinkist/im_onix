@@ -201,6 +201,8 @@ module ONIX
   end
 
   class SubsetDSL < Subset
+    attr_accessor :raw_xml
+
     def self.scope(name, lambda)
       @scopes ||= {}
       @scopes[name] = lambda
@@ -292,6 +294,8 @@ module ONIX
     end
 
     def parse(n)
+      raw_xml = n
+
       n.elements.each do |t|
         name = t.name
         e=self.class.ancestors_registered_elements[name]
