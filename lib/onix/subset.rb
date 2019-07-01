@@ -294,7 +294,7 @@ module ONIX
     end
 
     def parse(n)
-      raw_xml = n
+      @raw_xml = n
 
       n.elements.each do |t|
         name = t.name
