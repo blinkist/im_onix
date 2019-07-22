@@ -393,6 +393,10 @@ module ONIX
         cats
       end
 
+      def bisac_categories
+        bisac_categories_codes.map {|code| BisacCategories.category_for_code(code) }
+      end
+
       def clil_categories_codes
         (@main_subjects + @subjects).select { |s| s.scheme_identifier.human=="Clil" }.map{|s| s.code}
       end
@@ -599,6 +603,19 @@ module ONIX
         raise "WARN #{method} not found"
       end
 
+    end
+
+    # Update the codes and categories using
+    # https://bisactothema.biblioshare.ca/Translator.aspx
+    #
+    class BisacCategories
+      def self.category_for_code(code)
+        hash[code]
+      end
+
+      def self.hash
+        @hash ||= YAML.load(File.open(File.dirname(__FILE__) + "/../../data/bisac_categories.yml"))
+      end
     end
   end
 end
