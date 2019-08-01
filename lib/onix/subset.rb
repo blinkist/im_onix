@@ -200,7 +200,7 @@ module ONIX
   end
 
   class SubsetDSL < Subset
-    attr_accessor :raw_xml
+    attr_reader :raw_xml
 
     def self.scope(name, lambda)
       @scopes ||= {}
@@ -293,7 +293,7 @@ module ONIX
     end
 
     def parse(n)
-      raw_xml = n
+      @raw_xml = n
 
       n.elements.each do |t|
         name = t.name
