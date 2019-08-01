@@ -229,6 +229,17 @@ class TestImOnix < Minitest::Test
       @product = @message.products.last
     end
 
+    should "return the raw_header_xml" do
+      raw_header_xml = "<Header>\n  <Sender>\n    <SenderName>immatériel·fr</SenderName>\n  </Sender>\n  <SentDateTime>20130802</SentDateTime>\n  <DefaultLanguageOfText>fre</DefaultLanguageOfText>\n</Header>"
+      assert_equal raw_header_xml, @message.raw_header_xml.to_s
+    end
+
+    should "return the product's raw xml" do
+      raw_product_xml = "<Product>\n  <RecordReference>immateriel.fr-RP64127</RecordReference>\n  <NotificationType>03</NotificationType>\n  <ProductIdentifier>\n    <ProductIDType>01</ProductIDType>\n    <IDValue>RP64127</IDValue>\n  </ProductIdentifier>\n  <ProductIdentifier>\n    <ProductIDType>03</ProductIDType>\n    <IDValue>3019002489901</IDValue>\n  </ProductIdentifier>\n  <DescriptiveDetail>\n    <ProductComposition>00</ProductComposition>\n    <ProductForm>ED</ProductForm>\n    <ProductFormDetail>E101</ProductFormDetail>\n    <ProductFormDetail>E201</ProductFormDetail>\n    <ProductFormDescription>ePub fixed layout avec Tatouage</ProductFormDescription>\n    <ProductContentType>10</ProductContentType>\n    <EpubTechnicalProtection>02</EpubTechnicalProtection>\n    <EpubUsageConstraint>\n      <EpubUsageType>02</EpubUsageType>\n      <EpubUsageStatus>01</EpubUsageStatus>\n    </EpubUsageConstraint>\n    <EpubUsageConstraint>\n      <EpubUsageType>03</EpubUsageType>\n      <EpubUsageStatus>01</EpubUsageStatus>\n    </EpubUsageConstraint>\n    <EpubUsageConstraint>\n      <EpubUsageType>04</EpubUsageType>\n      <EpubUsageStatus>01</EpubUsageStatus>\n    </EpubUsageConstraint>\n    <TitleDetail>\n      <TitleType>01</TitleType>\n      <TitleElement>\n        <TitleElementLevel>01</TitleElementLevel>\n        <TitleText>Certaines n'avaient jamais vu la mer</TitleText>\n      </TitleElement>\n    </TitleDetail>\n    <Extent>\n      <ExtentType>22</ExtentType>\n      <ExtentValue>480211</ExtentValue>\n      <ExtentUnit>17</ExtentUnit>\n    </Extent>\n  </DescriptiveDetail>\n  <RelatedMaterial>\n    <RelatedProduct>\n      <ProductRelationCode>02</ProductRelationCode>\n      <ProductIdentifier>\n        <ProductIDType>01</ProductIDType>\n        <IDValue>O192530</IDValue>\n      </ProductIdentifier>\n      <ProductIdentifier>\n        <ProductIDType>03</ProductIDType>\n        <IDValue>9782752908643</IDValue>\n      </ProductIdentifier>\n      <ProductIdentifier>\n        <ProductIDType>15</ProductIDType>\n        <IDValue>9782752908643</IDValue>\n      </ProductIdentifier>\n    </RelatedProduct>\n  </RelatedMaterial>\n  <ProductSupply>\n    <SupplyDetail>\n      <Supplier>\n        <SupplierRole>03</SupplierRole>\n        <SupplierIdentifier>\n          <SupplierIDType>02</SupplierIDType>\n          <IDValue>D1</IDValue>\n        </SupplierIdentifier>\n        <SupplierIdentifier>\n          <SupplierIDType>06</SupplierIDType>\n          <IDValue>3012410001000</IDValue>\n        </SupplierIdentifier>\n        <SupplierName>immatériel·fr</SupplierName>\n      </Supplier>\n      <ProductAvailability>45</ProductAvailability>\n      <UnpricedItemType>03</UnpricedItemType>\n    </SupplyDetail>\n  </ProductSupply>\n</Product>"
+
+      assert_equal raw_product_xml, @product.raw_xml.to_s
+    end
+
     should "not be reflowable" do
       assert_equal false, @product.reflowable?
     end
