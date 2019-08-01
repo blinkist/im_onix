@@ -35,8 +35,8 @@ module ONIX
     end
 
     def unsupported(tag)
-#      raise SubsetUnsupported,tag.name
-#      puts "SubsetUnsupported: #{self.class}##{tag.name} (#{ShortToRef.names[tag.name]})"
+      # raise SubsetUnsupported,tag.name
+      # puts "SubsetUnsupported: #{self.class}##{tag.name} (#{ShortToRef.names[tag.name]})"
     end
 
     def tag_match(v)
@@ -46,7 +46,6 @@ module ONIX
     def self.tag_match(v)
       TagNameMatcher.new(v)
     end
-
   end
 
   class ElementParser
@@ -333,6 +332,5 @@ module ONIX
 #      raise SubsetUnsupported,tag.name
 #      puts "SubsetUnsupported: #{self.class}##{tag.name} (#{self.class.short_to_ref(tag.name)})"
     end
-
   end
 end
