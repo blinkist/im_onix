@@ -329,8 +329,8 @@ module ONIX
     end
 
     def unsupported(tag)
-#      raise SubsetUnsupported,tag.name
-#      puts "SubsetUnsupported: #{self.class}##{tag.name} (#{self.class.short_to_ref(tag.name)})"
+      # raise SubsetUnsupported,tag.name
+      # puts "SubsetUnsupported: #{self.class}##{tag.name} (#{self.class.short_to_ref(tag.name)})"
     end
   end
 end
