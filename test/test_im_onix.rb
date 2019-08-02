@@ -231,6 +231,7 @@ class TestImOnix < Minitest::Test
 
     should "return the file's header as raw xml" do
       raw_header_xml = "<Header>\n  <Sender>\n    <SenderName>immatériel·fr</SenderName>\n  </Sender>\n  <SentDateTime>20130802</SentDateTime>\n  <DefaultLanguageOfText>fre</DefaultLanguageOfText>\n</Header>"
+
       assert_equal raw_header_xml, @message.raw_header_xml.to_s
     end
 
@@ -848,6 +849,7 @@ class TestImOnix < Minitest::Test
 
     should "return the file's header as raw xml" do
       raw_header_xml = "<Header>\n    <FromCompany>Jouve</FromCompany>\n    <ToCompany>BnF</ToCompany>\n    <SentDate>20160114</SentDate>\n  </Header>"
+
       assert_equal raw_header_xml, @message.raw_header_xml.to_s
     end
 
