@@ -45,6 +45,13 @@ module ONIX
       end
     end
 
+    class ProductForm < CodeFromYaml
+      private
+      def self.code_ident
+        150
+      end
+    end
+
     class EpubType < CodeFromYaml
       private
       def self.code_ident
@@ -333,7 +340,7 @@ module ONIX
       elements "Publisher", :subset
       elements "Imprint", :subset
 
-      element "ProductForm", :text
+      element "ProductForm", :subset
 
       elements "OtherText", :subset
 
