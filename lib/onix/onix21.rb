@@ -48,7 +48,7 @@ module ONIX
     class ProductForm < CodeFromYaml
       private
       def self.code_ident
-        150
+        7
       end
     end
 
