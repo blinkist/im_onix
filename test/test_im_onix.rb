@@ -879,6 +879,10 @@ class TestImOnix < Minitest::Test
       assert_equal "9782346032532", @product.ean
     end
 
+    should "have an ISBN-13" do
+      assert_equal "9782346032532", @product.isbn13
+    end
+
     should "have title" do
       assert_equal "La Physiologie de l'esprit", @product.title
     end
