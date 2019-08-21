@@ -46,7 +46,6 @@ module ONIX
     end
 
     class ProductForm < CodeFromYaml
-      private
       def self.code_ident
         7
       end
