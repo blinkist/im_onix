@@ -474,6 +474,9 @@ class TestImOnix < Minitest::Test
       assert_equal "Mp3Format", @product.audio_format
     end
 
+    should "be the audio sample url" do
+      assert_equal "http://xxx/xxx.mp3", @product.audio_sample_url
+    end
   end
 
   context "audio product specified as 'digital content delivered by download only'" do
