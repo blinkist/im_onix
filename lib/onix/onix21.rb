@@ -560,7 +560,11 @@ module ONIX
       end
 
       def frontcover_url
-        fc=@media_files.select { |mf| mf.media_file_type_code.human=="ImageFrontCover" && mf.media_file_link_type_code.human=="Url"}
+        fc=@media_files.select do |mf|
+          mf.media_file_type_code.human=="ImageFrontCover" ||
+          mf.media_file_type_code.human=="ImageFrontCoveriHighQuality" &&
+          mf.media_file_link_type_code.human=="Url"
+        end
         if fc.length > 0
           fc.first.link
         else
