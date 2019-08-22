@@ -581,6 +581,17 @@ module ONIX
         end
       end
 
+      def audio_sample_url
+        audio=@media_files.select do |mf|
+          mf.media_file_type_code.human=="AudioSampleContent" && mf.media_file_link_type_code.human=="Url"
+        end
+        if audio.length > 0
+          audio.first.link
+        else
+          nil
+        end
+      end
+
       # TODO
       def publisher_collection_title
         nil
