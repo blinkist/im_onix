@@ -90,10 +90,6 @@ module ONIX
 
     class Header < SubsetDSL
       element "FromCompany", :text
-      element "FromSAN", :text
-      element "FromEANNumber", :text
-      element "FromPerson", :text
-      element "FromEmail", :text
     end
 
     class Title < SubsetDSL
