@@ -52,7 +52,7 @@ module ONIX
     attr_accessor :sender, :adressee, :sent_date_time,
                   :default_language_of_text, :default_currency_code,
                   :products, :release
-    attr_reader :raw_header_xml
+    attr_reader :raw_header_xml, :header
 
     def initialize
       @products=[]
@@ -161,7 +161,7 @@ module ONIX
                     end
                   end
                 else
-                  @sender = ONIX21::Header.parse(e).from_company
+                  @header = ONIX21::Header.parse(e)
                 end
               when tag_match("Product")
                 product=nil

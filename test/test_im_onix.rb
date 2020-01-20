@@ -858,8 +858,8 @@ class TestImOnix < Minitest::Test
       @product=@message.products.last
     end
 
-    should "return the sender" do
-      assert_equal "Jouve", @message.sender
+    should "return the from_company in header" do
+      assert_equal "Jouve", @message.header.from_company
     end
 
     should "return the file's header as raw xml" do
