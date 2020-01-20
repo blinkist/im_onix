@@ -142,9 +142,9 @@ module ONIX
             case e
               when tag_match("Header")
                 @raw_header_xml = e
-
-                e.elements.each do |t|
-                  case t
+                if @release =~ /^3.0/
+                  e.elements.each do |t|
+                    case t
                     when tag_match("Sender")
                       @sender=Sender.parse(t)
                     when tag_match("Addressee")
@@ -158,7 +158,11 @@ module ONIX
                       @default_currency_code=t.text
                     else
                       unsupported(t)
+                    end
                   end
+                else
+                  @raw_header_xml = e
+                  @sender = ONIX21::Header.parse(e).from_company
                 end
               when tag_match("Product")
                 product=nil

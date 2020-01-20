@@ -858,6 +858,10 @@ class TestImOnix < Minitest::Test
       @product=@message.products.last
     end
 
+    should "return the sender" do
+      assert_equal "Jouve", @message.sender
+    end
+
     should "return the file's header as raw xml" do
       raw_header_xml = "<Header>\n    <FromCompany>Jouve</FromCompany>\n    <ToCompany>BnF</ToCompany>\n    <SentDate>20160114</SentDate>\n  </Header>"
 
