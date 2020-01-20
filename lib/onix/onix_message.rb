@@ -161,7 +161,6 @@ module ONIX
                     end
                   end
                 else
-                  @raw_header_xml = e
                   @sender = ONIX21::Header.parse(e).from_company
                 end
               when tag_match("Product")
