@@ -352,6 +352,10 @@
       <LanguageRole>01</LanguageRole>
       <LanguageCode>fre</LanguageCode>
     </Language>
+    <Language>
+      <LanguageRole>08</LanguageRole>
+      <LanguageCode>eng</LanguageCode>
+    </Language>
     <Extent>
       <ExtentType>00</ExtentType>
       <ExtentValue>144</ExtentValue>

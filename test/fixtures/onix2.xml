@@ -24,6 +24,11 @@
       <LanguageCode>fre</LanguageCode>
       <CountryCode>FR</CountryCode>
     </Language>
+    <Language>
+      <LanguageRole>08</LanguageRole>
+      <LanguageCode>eng</LanguageCode>
+      <CountryCode>US</CountryCode>
+    </Language>
     <Contributor>
       <SequenceNumber>1</SequenceNumber>
       <ContributorRole>A01</ContributorRole>

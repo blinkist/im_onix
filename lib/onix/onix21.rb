@@ -459,6 +459,21 @@ module ONIX
         end
       end
 
+      def language_of_audio_track
+        @languages
+          .select { |l| l.role.human == 'LanguageOfAudioTrack' }
+          .first
+          &.code
+      end
+
+      def language_code_of_audio_track
+        language_of_audio_track&.code
+      end
+
+      def language_name_of_audio_track
+        language_of_audio_track&.human
+      end
+
       def publisher_name
         if @publishers.first
           @publishers.first.name
