@@ -457,8 +457,7 @@ module ONIX
 
       def language_of_audio_track
         @languages
-          .select { |l| l.role.human == 'LanguageOfAudioTrack' }
-          .first
+          .detect { |l| l.role.human == 'LanguageOfAudioTrack' }
           &.code
       end
 
