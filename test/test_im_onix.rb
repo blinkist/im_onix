@@ -36,6 +36,11 @@ class TestImOnix < Minitest::Test
       @product=@message.products.last
     end
 
+    should "have a the default language" do
+      assert_equal "Spanish", @product.default_language_of_text.human
+      assert_equal "Spanish", @message.header.default_language_of_text.human
+    end
+
     should "have authors" do
       assert_equal ["Julie Otsuka"], @product.authors
     end
@@ -870,8 +875,12 @@ class TestImOnix < Minitest::Test
       assert_equal "Jouve", @message.header.from_company
     end
 
+    should "return the default language in header" do
+      assert_equal "English", @message.header.default_language_of_text.human
+    end
+
     should "return the file's header as raw xml" do
-      raw_header_xml = "<Header>\n    <FromCompany>Jouve</FromCompany>\n    <ToCompany>BnF</ToCompany>\n    <SentDate>20160114</SentDate>\n  </Header>"
+      raw_header_xml = "<Header>\n    <FromCompany>Jouve</FromCompany>\n    <ToCompany>BnF</ToCompany>\n    <SentDate>20160114</SentDate>\n    <DefaultLanguageOfText>eng</DefaultLanguageOfText>\n  </Header>"
 
       assert_equal raw_header_xml, @message.raw_header_xml.to_s
     end
