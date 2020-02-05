@@ -127,7 +127,7 @@ class TestImOnix < Minitest::Test
     end
 
     should "have audio track language English" do
-      assert_equal "English", @product.descriptive_detail.language_of_audio_track.human
+      assert_equal "English", @product.language_name_of_audio_track
     end
 
     should "have some keywords" do
