@@ -331,7 +331,7 @@ module ONIX
 
     def narrators
       narrators = contributors.select do |c|
-        c.contributor_role.human == "ReadBy" || c.contributor_role.human == "Narrator"
+        ["ReadBy", "Narrator"].include?(c.contributor_role.human)
       end
       narrators.map(&:person_name)
     end
