@@ -643,7 +643,7 @@ class TestImOnix < Minitest::Test
       assert_equal "HarperCollins Publishers", @product.publisher_name
     end
 
-    should "have two authors" do
+    should "have three authors" do
       assert_equal 3, @product.contributors.select { |c| c.role.human=="ByAuthor" }.length
     end
 
